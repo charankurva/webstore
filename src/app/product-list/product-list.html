@@ -1,7 +1,16 @@
 <h1 [class]="Currentclasses">Products</h1>
-<ol>
-    @for(product of product_list;track product_list;let variable=$index ){
-    <li>{{product}}->{{variable}}</li>
-    }
+<div style="width: 30%;height: auto">
+    <ol [class.productlist]="true">
+        @for(product of product_list;track product_list;let variable=$first ){
+        <li>
+            <span style="padding-top:2;" (click)="selectedproduct=product"> {{product}}->{{variable}} </span>
 
-</ol>
+        </li>
+        }
+
+    </ol>
+</div>
+@if(selectedproduct){
+<p>passing value {{selectedproduct}} to product view</p>
+<app-product-view [product]="selectedproduct" (cart)="cart($event)"></app-product-view>
+}
