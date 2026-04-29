@@ -1,0 +1,7 @@
+<h1 [class]="Currentclasses">Products</h1>
+<ol>
+    @for(product of product_list;track product_list;let variable=$index ){
+    <li>{{product}}->{{variable}}</li>
+    }
+
+</ol>
